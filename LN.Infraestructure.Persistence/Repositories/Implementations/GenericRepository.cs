@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LN.Infraestructure.Persistence.Repositories.Implementations
 {
-    public class GenericRepository<T>: IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly Response<T> _response;
         private readonly ApplicationContext _context;
@@ -15,6 +15,7 @@ namespace LN.Infraestructure.Persistence.Repositories.Implementations
         public GenericRepository(ApplicationContext context)
         {
             _context = context;
+            _response = new Response<T>();
         }
 
         /// <summary>
@@ -22,7 +23,8 @@ namespace LN.Infraestructure.Persistence.Repositories.Implementations
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public async Task<Response<T>> Add(T entity) {
+        public async Task<Response<T>> Add(T entity)
+        {
             await _context.Set<T>().AddAsync(entity);
             await _context.SaveChangesAsync();
 
@@ -36,8 +38,9 @@ namespace LN.Infraestructure.Persistence.Repositories.Implementations
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<Response<T>> GetById(Guid Id) {
-            _response.Data = await _context.Set<T>().FindAsync(Id); 
+        public async Task<Response<T>> GetById(Guid Id)
+        {
+            _response.Data = await _context.Set<T>().FindAsync(Id);
 
             return _response;
         }
@@ -47,7 +50,8 @@ namespace LN.Infraestructure.Persistence.Repositories.Implementations
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public async Task<Response<T>> Update(T entity) {
+        public async Task<Response<T>> Update(T entity)
+        {
             _context.Entry(entity).State = EntityState.Modified;
             var result = await _context.SaveChangesAsync();
 
@@ -61,7 +65,8 @@ namespace LN.Infraestructure.Persistence.Repositories.Implementations
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public async Task<Response<T>> Remove(T entity) {
+        public async Task<Response<T>> Remove(T entity)
+        {
             _context.Set<T>().Remove(entity);
             var result = await _context.SaveChangesAsync();
 
