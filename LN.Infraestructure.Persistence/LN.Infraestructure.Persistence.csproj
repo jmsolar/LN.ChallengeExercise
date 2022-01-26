@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LN.Core.Application\LN.Core.Application.csproj" />
-    <ProjectReference Include="..\LN.Core.Domain\LN.Core.Domain.csproj" />
+    <ProjectReference Include="..\LN.Core.Application\LN.Application.csproj" />
+    <ProjectReference Include="..\LN.Core.Domain\LN.Domain.csproj" />
   </ItemGroup>
 
 </Project>
