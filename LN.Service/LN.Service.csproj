@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LN.Core.Application\LN.Application.csproj" />
+    <ProjectReference Include="..\LN.Infraestructure.Persistence\LN.Infraestructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
