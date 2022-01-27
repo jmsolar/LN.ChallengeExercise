@@ -8,4 +8,8 @@
     <Folder Include="Validators\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LN.Core.Domain\LN.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
