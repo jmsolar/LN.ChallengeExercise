@@ -13,7 +13,7 @@ namespace LN.WebAPI
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                var seeder = services.GetService<DataSeeder>();
+                var seeder = services.GetService<SeedContacts>();
                 seeder.Seed();
             }
             host.Run();

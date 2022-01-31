@@ -6,11 +6,11 @@ using System.Linq;
 
 namespace LN.Infraestructure.Persistence.Seeds
 {
-    public class DataSeeder
+    public class SeedContacts
     {
         private readonly ApplicationContext _applicationContext;
 
-        public DataSeeder(ApplicationContext applicationContext)
+        public SeedContacts(ApplicationContext applicationContext)
         {
             _applicationContext = applicationContext;
         }

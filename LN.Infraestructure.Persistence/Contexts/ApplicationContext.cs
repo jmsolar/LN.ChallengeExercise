@@ -72,15 +72,5 @@ namespace LN.Infraestructure.Persistence.Contexts
             AddressConfiguration.InitTableStructure(builder);
             ContactConfiguration.InitTableStructure(builder);
         }
-
-        /// <summary>
-        /// Seed data
-        /// </summary>
-        /// <param name="builder"></param>
-        private static void SeedData(ModelBuilder builder)
-        {
-            
-            builder.ApplyConfiguration(new ContactSeed());
-        }
     }
 }

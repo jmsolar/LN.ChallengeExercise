@@ -40,7 +40,7 @@ namespace LN.Infraestructure.Persistence
 
         private static void InitSeeder()
         {
-            _services.AddTransient<DataSeeder>();
+            _services.AddTransient<SeedContacts>();
         }
     }
 }
