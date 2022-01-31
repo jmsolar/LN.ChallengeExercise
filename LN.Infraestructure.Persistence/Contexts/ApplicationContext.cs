@@ -1,7 +1,6 @@
 ﻿using LN.Core.Domain.Entities;
 using LN.Core.Domain.Entities.Common;
 using LN.Infraestructure.Persistence.Configurations;
-using LN.Infraestructure.Persistence.Seeds;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;

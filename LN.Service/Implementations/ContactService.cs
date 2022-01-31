@@ -1,6 +1,6 @@
 ﻿using LN.Core.Application.DTOs.Contact;
 using LN.Core.Application.Wrappers;
-using LN.Infraestructure.Persistence.Repositories.Implementations;
+using LN.Infraestructure.Persistence.Repositories.Interfaces;
 using LN.Service.Interfaces;
 using LN.Service.Utils.TemplateMethods.Adapters;
 using LN.Service.Utils.TemplateMethods.ExtensionsTemplates;
@@ -11,9 +11,9 @@ namespace LN.Service.Implementations
 {
     public class ContactService : IContactService
     {
-        private readonly ContactRepository _contactRepository;
+        private readonly IContactRepository _contactRepository;
 
-        public ContactService(ContactRepository contactRepository)
+        public ContactService(IContactRepository contactRepository)
         {
             _contactRepository = contactRepository;
         }
@@ -27,8 +27,7 @@ namespace LN.Service.Implementations
         {
             var createContact = new CreateContact
             {
-                _contactRequest = request,
-                _contactRepository = this._contactRepository
+                _contactRequest = request
             };
 
             return await ContactAdapter.Create(createContact);

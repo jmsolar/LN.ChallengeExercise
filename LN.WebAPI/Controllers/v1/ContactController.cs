@@ -1,6 +1,7 @@
 ﻿using LN.Core.Application.DTOs.Contact;
 using LN.Core.Application.Wrappers;
 using LN.Service.Implementations;
+using LN.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -12,9 +13,9 @@ namespace LN.WebAPI.Controllers.v1
     [ApiController]
     public class ContactController : ControllerBase
     {
-        private ContactService _contactService;
+        private readonly IContactService _contactService;
 
-        public ContactController(ContactService contactService)
+        public ContactController(IContactService contactService)
         {
             _contactService = contactService;
         }
