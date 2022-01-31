@@ -27,7 +27,8 @@ namespace LN.Service.Implementations
         {
             var createContact = new CreateContact
             {
-                _contactRequest = request
+                _contactRequest = request,
+                _contactRepository = _contactRepository
             };
 
             return await ContactAdapter.Create(createContact);
