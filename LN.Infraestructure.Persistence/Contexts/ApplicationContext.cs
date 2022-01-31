@@ -79,6 +79,7 @@ namespace LN.Infraestructure.Persistence.Contexts
         /// <param name="builder"></param>
         private static void SeedData(ModelBuilder builder)
         {
+            
             builder.ApplyConfiguration(new ContactSeed());
         }
     }
