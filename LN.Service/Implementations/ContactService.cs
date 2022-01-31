@@ -12,10 +12,12 @@ namespace LN.Service.Implementations
     public class ContactService : IContactService
     {
         private readonly ContactRepository _contactRepository;
+
         public ContactService(ContactRepository contactRepository)
         {
             _contactRepository = contactRepository;
         }
+
         /// <summary>
         /// Adds a contact to DB and return it
         /// </summary>
@@ -35,9 +37,9 @@ namespace LN.Service.Implementations
         /// <summary>
         /// Removes a contact from DB and return if was success
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<Response<bool>> DeleteContact(ContactRequestDTO request)
+        public async Task<Response<bool>> DeleteContact(Guid Id)
         {
             //var contact = ContactMapper.ToContact(request);
             //var resp = await _contactRepository.Remove(contact);
@@ -61,9 +63,10 @@ namespace LN.Service.Implementations
         /// <summary>
         /// Modifies a contact 
         /// </summary>
+        /// <param name="Id"></param>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<Response<bool>> UpdateContact(ContactRequestDTO request)
+        public async Task<Response<bool>> UpdateContact(Guid Id, ContactRequestDTO request)
         {
             throw new NotImplementedException();
         }

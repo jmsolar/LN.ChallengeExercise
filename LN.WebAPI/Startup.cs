@@ -1,15 +1,10 @@
+using LN.Infraestructure.Persistence;
+using LN.WebAPI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LN.WebAPI
 {
@@ -25,6 +20,8 @@ namespace LN.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddPersistenceInfrastructure(Configuration);
+            services.AddSwaggerExtension();
             services.AddControllers();
         }
 
@@ -46,6 +43,8 @@ namespace LN.WebAPI
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwaggerExtension();
         }
     }
 }

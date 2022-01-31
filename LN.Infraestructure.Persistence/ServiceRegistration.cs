@@ -12,8 +12,9 @@ namespace LN.Infraestructure.Persistence
         public static void AddPersistenceInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration["ConnectionStrings:ApplicationConnection"];
-            services.AddDbContext<ApplicationContext>(options => 
-                options.UseSqlServer(connectionString, b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName))
+            services.AddDbContext<ApplicationContext>(options => options
+                .UseSqlServer(connectionString, b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName))
+                .EnableSensitiveDataLogging()
             );
 
             #region Repositories

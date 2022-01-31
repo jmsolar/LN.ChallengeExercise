@@ -12,7 +12,7 @@ namespace LN.Service.Interfaces
         /// <summary>
         /// Creates a contact and return it
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         [OperationContract]
         Task<Response<ContactResponseDTO>> CreateContact(ContactRequestDTO request);
@@ -28,17 +28,18 @@ namespace LN.Service.Interfaces
         /// <summary>
         /// Modifies a contact on DB and return if was succesfull
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="Id"></param>
+        /// <param name="request"
         /// <returns></returns>
         [OperationContract]
-        Task<Response<bool>> UpdateContact(ContactRequestDTO request);
+        Task<Response<bool>> UpdateContact(Guid Id, ContactRequestDTO request);
 
         /// <summary>
         /// Removes a contact return if was succesfull
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="Id"></param>
         /// <returns></returns>
         [OperationContract]
-        Task<Response<bool>> DeleteContact(ContactRequestDTO request);
+        Task<Response<bool>> DeleteContact(Guid Id);
     }
 }
