@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-namespace LN.Core.Application.DTOs.City
+namespace LN.Application.DTOs.City.Requests
 {
     [DataContract]
-    public class CityResponseDTO
+    public class NewCityDTO
     {
         [DataMember]
         public int ZipCode { get; set; }

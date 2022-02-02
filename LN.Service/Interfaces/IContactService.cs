@@ -1,4 +1,5 @@
-﻿using LN.Core.Application.DTOs.Contact;
+﻿using LN.Application.DTOs.Contact.Requests;
+using LN.Core.Application.DTOs.Contact.Responses;
 using LN.Core.Application.Wrappers;
 using System;
 using System.ServiceModel;
@@ -15,7 +16,7 @@ namespace LN.Service.Interfaces
         /// <param name="request"></param>
         /// <returns></returns>
         [OperationContract]
-        Task<Response<ContactResponseDTO>> CreateContact(ContactRequestDTO request);
+        Task<Response<ContactResponseDTO>> CreateContact(NewContactDTO request);
 
         /// <summary>
         /// Retrieves a contact by Id field

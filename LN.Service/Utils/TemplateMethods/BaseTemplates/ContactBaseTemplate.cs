@@ -1,5 +1,6 @@
-﻿using LN.Application.Mappers;
-using LN.Core.Application.DTOs.Contact;
+﻿using LN.Application.NewFolder.Implementations;
+using LN.Application.NewFolder.Interfaces;
+using LN.Core.Application.DTOs.Contact.Responses;
 using LN.Core.Application.Wrappers;
 using LN.Core.Domain.Entities;
 using LN.Infraestructure.Persistence.Repositories.Interfaces;
@@ -9,7 +10,10 @@ namespace LN.Service.Utils.TemplateMethods.BaseTemplates
 {
     public abstract class ContactBaseTemplate
     {
-        public ContactRequestDTO _contactRequest;
+        public IMapContactRequest<MapContactRequest> _contactRequest;
+
+
+
         public Contact _contact;
         public Response<Contact> _responseContact;
         private Response<ContactResponseDTO> _response = new Response<ContactResponseDTO>();

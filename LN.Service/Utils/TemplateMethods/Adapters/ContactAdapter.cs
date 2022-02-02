@@ -1,4 +1,4 @@
-﻿using LN.Core.Application.DTOs.Contact;
+﻿using LN.Core.Application.DTOs.Contact.Responses;
 using LN.Core.Application.Wrappers;
 using LN.Service.Utils.TemplateMethods.BaseTemplates;
 using LN.Service.Utils.TemplateMethods.ExtensionsTemplates;

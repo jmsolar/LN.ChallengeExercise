@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Mappers\ContactMapper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Mappers\" />
     <Folder Include="Validators\" />
   </ItemGroup>
 

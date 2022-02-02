@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-namespace LN.Core.Application.DTOs.Country
+namespace LN.Application.DTOs.Country.Requests
 {
     [DataContract]
-    public class CountryResponseDTO
+    public class NewCountryDTO
     {
         [DataMember]
         public string Name { get; set; }

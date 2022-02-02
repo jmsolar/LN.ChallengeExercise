@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-namespace LN.Core.Application.DTOs.State
+namespace LN.Application.DTOs.State.Requests
 {
     [DataContract]
-    public class StateResponseDTO
+    public class NewStateDTO
     {
         [DataMember]
         public string Code { get; set; }

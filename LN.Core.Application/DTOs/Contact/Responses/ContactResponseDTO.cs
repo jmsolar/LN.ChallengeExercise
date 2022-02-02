@@ -1,9 +1,9 @@
-﻿using LN.Core.Application.DTOs.Address;
-using LN.Core.Application.DTOs.PhoneNumber;
+﻿using LN.Core.Application.DTOs.Address.Responses;
+using LN.Core.Application.DTOs.PhoneNumber.Responses;
 using System;
 using System.Runtime.Serialization;
 
-namespace LN.Core.Application.DTOs.Contact
+namespace LN.Core.Application.DTOs.Contact.Responses
 {
     [DataContract]
     public class ContactResponseDTO
@@ -21,8 +21,8 @@ namespace LN.Core.Application.DTOs.Contact
         [DataMember]
         public DateTime Birthdate { get; set; }
         [DataMember]
-        public PhoneNumberResponseDTO PhoneNumber { get; set; }
+        public PhoneNumberDTO PhoneNumber { get; set; }
         [DataMember]
-        public AddressResponseDTO Address { get; set; }
+        public AddressDTO Address { get; set; }
     }
 }

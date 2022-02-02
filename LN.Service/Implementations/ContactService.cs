@@ -1,4 +1,5 @@
-﻿using LN.Core.Application.DTOs.Contact;
+﻿using LN.Application.DTOs.Contact.Requests;
+using LN.Core.Application.DTOs.Contact.Responses;
 using LN.Core.Application.Wrappers;
 using LN.Infraestructure.Persistence.Repositories.Interfaces;
 using LN.Service.Interfaces;
@@ -23,7 +24,7 @@ namespace LN.Service.Implementations
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<Response<ContactResponseDTO>> CreateContact(ContactRequestDTO request)
+        public async Task<Response<ContactResponseDTO>> CreateContact(NewContactDTO request)
         {
             var createContact = new CreateContact
             {
