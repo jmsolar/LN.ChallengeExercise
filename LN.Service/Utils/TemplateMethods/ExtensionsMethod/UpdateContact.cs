@@ -3,19 +3,20 @@ using LN.Core.Domain.Entities;
 using LN.Service.Utils.TemplateMethods.BaseTemplates;
 using System.Threading.Tasks;
 
-namespace LN.Service.Utils.TemplateMethods.ExtensionsTemplates
+namespace LN.Service.Utils.TemplateMethods.ExtensionsMethod
 {
-    public class CreateContact : ContactBaseTemplate
+    public class UpdateContact : ContactBaseTemplate
     {
-        public NewContactDTO _contactRequestToMap;
+        private ModifyContactDTO _contactRequestToMap;
 
         public override void Setup()
         {
-            _contactRequestToMap = _newContact;
+            _contactRequestToMap = _modifyContact;
         }
 
-        public override async Task CRUDOperation() {
-            _responseContact = await _contactRepository.Add(_requestMapped);
+        public override async Task CRUDOperation()
+        {
+            await _contactRepository.Update(_requestMapped);
         }
 
         public override void MapRequestBase()
@@ -86,9 +87,6 @@ namespace LN.Service.Utils.TemplateMethods.ExtensionsTemplates
                 Name = _contactRequestToMap.Name,
                 Company = _contactRequestToMap.Company,
                 Profile = _contactRequestToMap.Profile,
-                Image = _contactRequestToMap.Image,
-                Email = _contactRequestToMap.Email,
-                Birthdate = _contactRequestToMap.Birthdate,
                 PhoneNumber = phoneNumber,
                 Address = address
             };

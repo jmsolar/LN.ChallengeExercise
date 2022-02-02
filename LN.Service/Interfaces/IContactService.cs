@@ -33,7 +33,7 @@ namespace LN.Service.Interfaces
         /// <param name="request"
         /// <returns></returns>
         [OperationContract]
-        Task<Response<bool>> UpdateContact(Guid Id, NewContactDTO request);
+        Task<Response<bool>> UpdateContact(Guid Id, ModifyContactDTO request);
 
         /// <summary>
         /// Removes a contact return if was succesfull

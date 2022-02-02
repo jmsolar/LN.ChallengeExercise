@@ -4,7 +4,8 @@ using LN.Core.Application.Wrappers;
 using LN.Infraestructure.Persistence.Repositories.Interfaces;
 using LN.Service.Interfaces;
 using LN.Service.Utils.TemplateMethods.Adapters;
-using LN.Service.Utils.TemplateMethods.ExtensionsTemplates;
+using LN.Service.Utils.TemplateMethods.ExtensionMethod;
+using LN.Service.Utils.TemplateMethods.ExtensionsMethod;
 using System;
 using System.Threading.Tasks;
 
@@ -31,7 +32,7 @@ namespace LN.Service.Implementations
                 _contactRepository = this._contactRepository
             };
 
-            return await ContactAdapter.Create(createContact, request);
+            return await ContactAdapter.New(createContact, request);
         }
 
         /// <summary>
@@ -46,7 +47,7 @@ namespace LN.Service.Implementations
                 _contactRepository = this._contactRepository
             };
 
-            return await ContactAdapter.Remove(removeContact, Id);
+            return await ContactAdapter.Delete(removeContact, Id);
         }
 
         /// <summary>
@@ -65,9 +66,14 @@ namespace LN.Service.Implementations
         /// <param name="Id"></param>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<Response<bool>> UpdateContact(Guid Id, NewContactDTO request)
+        public async Task<Response<bool>> UpdateContact(Guid Id, ModifyContactDTO request)
         {
-            throw new NotImplementedException();
+            var updateContact = new UpdateContact()
+            {
+                _contactRepository = this._contactRepository
+            };
+
+            return await ContactAdapter.Modify(updateContact, request, Id);
         }
     }
 }

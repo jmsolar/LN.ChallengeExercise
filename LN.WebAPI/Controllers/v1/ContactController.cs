@@ -33,27 +33,21 @@ namespace LN.WebAPI.Controllers.v1
         [HttpPost] 
         public async Task<Response<ContactDTO>> Post([FromBody] NewContactDTO request)
         {
-            var response = await _contactService.CreateContact(request);
-
-            return response;
+            return await _contactService.CreateContact(request);
         }
 
         // PUT api/<ContactController>/5
         [HttpPut("{id}")]
-        public async Task<Response<bool>> Put(Guid id, [FromBody] NewContactDTO request)
+        public async Task<Response<bool>> Put(Guid id, [FromBody] ModifyContactDTO request)
         {
-            var response = await _contactService.UpdateContact(id, request);
-
-            return response;
+            return await _contactService.UpdateContact(id, request);
         }
 
         // DELETE api/<ContactController>/5
         [HttpDelete("{id}")]
         public async Task<Response<bool>> Delete(Guid id)
         {
-            var response = await _contactService.DeleteContact(id);
-
-            return response;
+            return await _contactService.DeleteContact(id); ;
         }
     }
 }

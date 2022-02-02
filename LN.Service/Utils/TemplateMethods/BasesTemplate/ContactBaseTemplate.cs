@@ -35,6 +35,7 @@ namespace LN.Service.Utils.TemplateMethods.BaseTemplates
         public NewStateDTO _state;
         public NewCityDTO _city;
         public Guid _id;
+        public ModifyContactDTO _modifyContact;
         #endregion
 
         public async Task<Response<ContactDTO>> GetContact() {

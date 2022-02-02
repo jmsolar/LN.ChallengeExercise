@@ -3,11 +3,11 @@ using LN.Core.Application.Wrappers;
 using LN.Service.Utils.TemplateMethods.BaseTemplates;
 using System.Threading.Tasks;
 
-namespace LN.Service.Utils.TemplateMethods.ExtensionsTemplates
+namespace LN.Service.Utils.TemplateMethods.ExtensionMethod
 {
     public class RemoveContact : ContactBaseTemplate
     {
-        public RemoveContactDTO _contactToRemove;
+        private RemoveContactDTO _contactToRemove;
 
         public override void Setup()
         {
@@ -24,11 +24,5 @@ namespace LN.Service.Utils.TemplateMethods.ExtensionsTemplates
             var result = await _contactRepository.Remove(contactInDB.Data);
             _responseStatus = new Response<bool>() { Success = result.Success }; ;
         }
-
-        public override void MapRequestBase()
-        {
-            base.MapRequestBase();
-        }
-
     }
 }
