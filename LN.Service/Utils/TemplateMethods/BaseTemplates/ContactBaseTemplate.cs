@@ -1,5 +1,9 @@
-﻿using LN.Application.NewFolder.Implementations;
-using LN.Application.NewFolder.Interfaces;
+﻿using LN.Application.DTOs.Address.Requests;
+using LN.Application.DTOs.City.Requests;
+using LN.Application.DTOs.Contact.Requests;
+using LN.Application.DTOs.Country.Requests;
+using LN.Application.DTOs.PhoneNumber.Requests;
+using LN.Application.DTOs.State.Requests;
 using LN.Core.Application.DTOs.Contact.Responses;
 using LN.Core.Application.Wrappers;
 using LN.Core.Domain.Entities;
@@ -10,16 +14,21 @@ namespace LN.Service.Utils.TemplateMethods.BaseTemplates
 {
     public abstract class ContactBaseTemplate
     {
-        public IMapContactRequest<MapContactRequest> _contactRequest;
+        public Contact _requestMapped;
 
-
-
-        public Contact _contact;
         public Response<Contact> _responseContact;
-        private Response<ContactResponseDTO> _response = new Response<ContactResponseDTO>();
+        private Response<ContactDTO> _response = new Response<ContactDTO>();
         public IContactRepository _contactRepository;
 
-        public async Task<Response<ContactResponseDTO>> TemplateMethod() {
+        public NewContactDTO _contact;
+        public NewPhoneNumberDTO _phoneNumber;
+        public NewAddressDTO _address;
+        public NewCountryDTO _country;
+        public NewStateDTO _state;
+        public NewCityDTO _city;
+
+        public async Task<Response<ContactDTO>> TemplateMethod() {
+            Setup();
             MapRequestBase();
             await HookCRUDOperation();
             MapResponseBase();
@@ -27,16 +36,12 @@ namespace LN.Service.Utils.TemplateMethods.BaseTemplates
             return _response;
         }
 
-        protected void MapRequestBase()
-        {
-            _contact = ContactMapper.ToContact(_contactRequest);
-        }
+        public virtual void Setup() { }
+
+        public virtual void MapRequestBase() { }
 
         public virtual async Task HookCRUDOperation() { }
 
-        protected void MapResponseBase()
-        {
-            _response.Data = ContactMapper.ToContactResponse(_responseContact.Data);
-        }
+        public virtual void MapResponseBase() { }
     }
 }

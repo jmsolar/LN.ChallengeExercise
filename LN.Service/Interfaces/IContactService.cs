@@ -16,7 +16,7 @@ namespace LN.Service.Interfaces
         /// <param name="request"></param>
         /// <returns></returns>
         [OperationContract]
-        Task<Response<ContactResponseDTO>> CreateContact(NewContactDTO request);
+        Task<Response<ContactDTO>> CreateContact(NewContactDTO request);
 
         /// <summary>
         /// Retrieves a contact by Id field
@@ -24,7 +24,7 @@ namespace LN.Service.Interfaces
         /// <param name="Id"></param>
         /// <returns></returns>
         [OperationContract]
-        Task<Response<ContactResponseDTO>> GetContactById(Guid Id);
+        Task<Response<ContactDTO>> GetContactById(Guid Id);
 
         /// <summary>
         /// Modifies a contact on DB and return if was succesfull
@@ -33,7 +33,7 @@ namespace LN.Service.Interfaces
         /// <param name="request"
         /// <returns></returns>
         [OperationContract]
-        Task<Response<bool>> UpdateContact(Guid Id, ContactRequestDTO request);
+        Task<Response<bool>> UpdateContact(Guid Id, NewContactDTO request);
 
         /// <summary>
         /// Removes a contact return if was succesfull

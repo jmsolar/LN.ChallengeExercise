@@ -36,10 +36,10 @@ namespace LN.Infraestructure.Persistence.Contexts
                 {
                     case EntityState.Added:
                         entry.Entity.Created = DateTime.Now;
-                        entry.Entity.CreatedBy = new Guid();
+                        entry.Entity.CreatedBy = Guid.NewGuid();
                         break;
                     case EntityState.Modified:
-                        entry.Entity.ModifiedBy = new Guid();
+                        entry.Entity.ModifiedBy = Guid.NewGuid();
                         break;
                 }
             }

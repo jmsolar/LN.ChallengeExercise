@@ -1,6 +1,6 @@
-﻿using LN.Core.Application.DTOs.Contact;
+﻿using LN.Application.DTOs.Contact.Requests;
+using LN.Core.Application.DTOs.Contact.Responses;
 using LN.Core.Application.Wrappers;
-using LN.Service.Implementations;
 using LN.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,7 +22,7 @@ namespace LN.WebAPI.Controllers.v1
 
         // GET api/<ContactController>/5
         [HttpGet("{id}")]
-        public async Task<Response<ContactResponseDTO>> Get(Guid id)
+        public async Task<Response<ContactDTO>> Get(Guid id)
         {
             var response = await _contactService.GetContactById(id);
 
@@ -30,8 +30,8 @@ namespace LN.WebAPI.Controllers.v1
         }
 
         // POST api/<ContactController>
-        [HttpPost]
-        public async Task<Response<ContactResponseDTO>> Post([FromBody] ContactRequestDTO request)
+        [HttpPost] 
+        public async Task<Response<ContactDTO>> Post([FromBody] NewContactDTO request)
         {
             var response = await _contactService.CreateContact(request);
 
@@ -40,7 +40,7 @@ namespace LN.WebAPI.Controllers.v1
 
         // PUT api/<ContactController>/5
         [HttpPut("{id}")]
-        public async Task<Response<bool>> Put(Guid id, [FromBody] ContactRequestDTO request)
+        public async Task<Response<bool>> Put(Guid id, [FromBody] NewContactDTO request)
         {
             var response = await _contactService.UpdateContact(id, request);
 

@@ -1,9 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using LN.Application.DTOs.Generic;
+using System.Runtime.Serialization;
 
 namespace LN.Application.DTOs.Country.Requests
 {
     [DataContract]
-    public class NewCountryDTO
+    public class NewCountryDTO : GenericDTO
     {
         [DataMember]
         public string Name { get; set; }

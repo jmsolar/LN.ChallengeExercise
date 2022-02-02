@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace LN.Core.Application.DTOs.Contact.Responses
 {
     [DataContract]
-    public class ContactResponseDTO
+    public class ContactDTO
     {
         [DataMember]
         public string Name { get; set; }

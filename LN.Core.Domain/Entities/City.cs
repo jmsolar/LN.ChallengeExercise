@@ -1,4 +1,5 @@
 ﻿using LN.Core.Domain.Entities.Common;
+using System;
 
 namespace LN.Core.Domain.Entities
 {
@@ -6,5 +7,6 @@ namespace LN.Core.Domain.Entities
     {
         public int ZipCode { get; set; }
         public string Name { get; set; }
+        public Guid AddressId { get; set; }
     }
 }

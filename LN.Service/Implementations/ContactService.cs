@@ -24,15 +24,14 @@ namespace LN.Service.Implementations
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<Response<ContactResponseDTO>> CreateContact(NewContactDTO request)
+        public async Task<Response<ContactDTO>> CreateContact(NewContactDTO request)
         {
             var createContact = new CreateContact
             {
-                _contactRequest = request,
-                _contactRepository = _contactRepository
+                _contactRepository = this._contactRepository
             };
 
-            return await ContactAdapter.Create(createContact);
+            return await ContactAdapter.Create(createContact, request);
         }
 
         /// <summary>
@@ -56,7 +55,7 @@ namespace LN.Service.Implementations
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<Response<ContactResponseDTO>> GetContactById(Guid Id)
+        public async Task<Response<ContactDTO>> GetContactById(Guid Id)
         {
             throw new NotImplementedException();
         }
@@ -67,7 +66,7 @@ namespace LN.Service.Implementations
         /// <param name="Id"></param>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<Response<bool>> UpdateContact(Guid Id, ContactRequestDTO request)
+        public async Task<Response<bool>> UpdateContact(Guid Id, NewContactDTO request)
         {
             throw new NotImplementedException();
         }

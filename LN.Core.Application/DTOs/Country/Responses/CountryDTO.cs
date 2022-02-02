@@ -3,7 +3,7 @@
 namespace LN.Core.Application.DTOs.Country.Responses
 {
     [DataContract]
-    public class CountryResponseDTO
+    public class CountryDTO
     {
         [DataMember]
         public string Name { get; set; }

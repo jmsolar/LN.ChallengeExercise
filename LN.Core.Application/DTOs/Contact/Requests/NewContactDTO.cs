@@ -1,4 +1,5 @@
 ﻿using LN.Application.DTOs.Address.Requests;
+using LN.Application.DTOs.Generic;
 using LN.Application.DTOs.PhoneNumber.Requests;
 using System;
 using System.Runtime.Serialization;
@@ -6,7 +7,7 @@ using System.Runtime.Serialization;
 namespace LN.Application.DTOs.Contact.Requests
 {
     [DataContract]
-    public class NewContactDTO
+    public class NewContactDTO : GenericDTO
     {
         [DataMember]
         public string Name { get; set; }

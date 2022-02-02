@@ -9,7 +9,7 @@ namespace LN.Core.Application.DTOs.Address.Responses
     public class AddressDTO
     {
         [DataMember]
-        public CountryResponseDTO Country { get; set; }
+        public CountryDTO Country { get; set; }
         [DataMember]
         public StateDTO State { get; set; }
         [DataMember]

@@ -1,9 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using LN.Application.DTOs.Generic;
+using System.Runtime.Serialization;
 
 namespace LN.Application.DTOs.City.Requests
 {
     [DataContract]
-    public class NewCityDTO
+    public class NewCityDTO : GenericDTO
     {
         [DataMember]
         public int ZipCode { get; set; }

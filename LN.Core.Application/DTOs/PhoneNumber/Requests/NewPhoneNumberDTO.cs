@@ -1,9 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using LN.Application.DTOs.Generic;
+using System.Runtime.Serialization;
 
 namespace LN.Application.DTOs.PhoneNumber.Requests
 {
     [DataContract]
-    public class NewPhoneNumberDTO
+    public class NewPhoneNumberDTO : GenericDTO
     {
         [DataMember]
         public string CountryCode { get; set; }

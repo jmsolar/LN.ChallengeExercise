@@ -1,12 +1,13 @@
 ﻿using LN.Application.DTOs.City.Requests;
 using LN.Application.DTOs.Country.Requests;
+using LN.Application.DTOs.Generic;
 using LN.Application.DTOs.State.Requests;
 using System.Runtime.Serialization;
 
 namespace LN.Application.DTOs.Address.Requests
 {
     [DataContract]
-    public class NewAddressDTO
+    public class NewAddressDTO : GenericDTO
     {
         [DataMember]
         public NewCountryDTO Country { get; set; }

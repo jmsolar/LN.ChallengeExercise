@@ -1,4 +1,5 @@
 ﻿using LN.Core.Domain.Entities.Common;
+using System;
 
 namespace LN.Core.Domain.Entities
 {
@@ -7,5 +8,6 @@ namespace LN.Core.Domain.Entities
         public string CountryCode { get; set; }
         public string StateCode { get; set; }
         public string Number { get; set; }
+        public Guid ContactId { get; set; }
     }
 }

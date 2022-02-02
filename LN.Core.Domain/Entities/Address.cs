@@ -1,4 +1,5 @@
 ﻿using LN.Core.Domain.Entities.Common;
+using System;
 
 namespace LN.Core.Domain.Entities
 {
@@ -10,5 +11,6 @@ namespace LN.Core.Domain.Entities
 
         // Calle + numero + piso
         public string Detail { get; set; }
+        public Guid ContactId { get; set; }
     }
 }
