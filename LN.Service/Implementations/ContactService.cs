@@ -41,13 +41,12 @@ namespace LN.Service.Implementations
         /// <returns></returns>
         public async Task<Response<bool>> DeleteContact(Guid Id)
         {
-            //var contact = ContactMapper.ToContact(request);
-            //var resp = await _contactRepository.Remove(contact);
-            var response = new Response<bool>() { 
-                Success = true
+            var removeContact = new RemoveContact()
+            {
+                _contactRepository = this._contactRepository
             };
 
-            return response;
+            return await ContactAdapter.Remove(removeContact, Id);
         }
 
         /// <summary>

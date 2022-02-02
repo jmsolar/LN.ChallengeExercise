@@ -3,6 +3,7 @@ using LN.Core.Application.DTOs.Contact.Responses;
 using LN.Core.Application.Wrappers;
 using LN.Service.Utils.TemplateMethods.BaseTemplates;
 using LN.Service.Utils.TemplateMethods.ExtensionsTemplates;
+using System;
 using System.Threading.Tasks;
 
 namespace LN.Service.Utils.TemplateMethods.Adapters
@@ -20,9 +21,18 @@ namespace LN.Service.Utils.TemplateMethods.Adapters
             _template._country = request.Address.Country;
             _template._state = request.Address.State;
             _template._city = request.Address.City;
-            _template._contact = request;
+            _template._newContact = request;
 
-            return await _template.TemplateMethod();
+            return await _template.GetContact();
+        }
+
+        public static async Task<Response<bool>> Remove(RemoveContact removeContact, Guid Id)
+        {
+            _template = removeContact;
+
+            _template._id = Id;
+
+            return await _template.GetStatusResult();
         }
     }
 }

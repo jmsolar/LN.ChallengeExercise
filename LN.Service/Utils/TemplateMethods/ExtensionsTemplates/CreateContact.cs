@@ -11,10 +11,10 @@ namespace LN.Service.Utils.TemplateMethods.ExtensionsTemplates
 
         public override void Setup()
         {
-            _contactRequestToMap = _contact;
+            _contactRequestToMap = _newContact;
         }
 
-        public override async Task HookCRUDOperation() {
+        public override async Task CRUDOperation() {
             _responseContact = await _contactRepository.Add(_requestMapped);
         }
 

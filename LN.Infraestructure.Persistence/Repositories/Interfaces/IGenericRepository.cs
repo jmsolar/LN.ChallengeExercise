@@ -28,7 +28,7 @@ namespace LN.Infraestructure.Persistence.Repositories.Interfaces
         Task<Response<T>> Update(T entity);
 
         /// <summary>
-        /// Removes phisically a entity from DB and return if was success
+        /// Removes a entity from DB and return if was success
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
