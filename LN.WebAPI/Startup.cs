@@ -7,11 +7,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace LN.WebAPI
 {
     public class Startup
     {
+        private string connectionString { get => Configuration["ConnectionStrings:ApplicationConnection"]; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,7 +34,7 @@ namespace LN.WebAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger)
         {
             if (env.IsDevelopment())
             {
@@ -42,6 +46,10 @@ namespace LN.WebAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSerilogExtension(logger, Configuration, connectionString);
+            app.UseSerilogRequestLogging();
+            app.UseRequestResponseHandlingMiddleware();
 
             app.UseEndpoints(endpoints =>
             {
