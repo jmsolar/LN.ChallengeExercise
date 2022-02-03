@@ -15,10 +15,10 @@ namespace LN.Service.Implementations
         private readonly IContactRepositoryWithLINQ _contactRepositoryWithLINQ;
         private readonly IContactRepositoryWithSP _contactRepositoryWithSP;
 
-        public ContactService(//IContactRepositoryWithLINQ contactRepositoryWithLINQ, 
+        public ContactService(IContactRepositoryWithLINQ contactRepositoryWithLINQ, 
             IContactRepositoryWithSP contactRepositoryWithSP)
         {
-            //_contactRepositoryWithLINQ = contactRepositoryWithLINQ;
+            _contactRepositoryWithLINQ = contactRepositoryWithLINQ;
             _contactRepositoryWithSP = contactRepositoryWithSP;
         }
 
