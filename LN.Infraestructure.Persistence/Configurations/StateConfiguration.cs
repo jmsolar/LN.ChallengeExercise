@@ -10,11 +10,9 @@ namespace LN.Infraestructure.Persistence.Configurations
             builder.Entity<State>(entity =>
             {
                 entity.Property(st => st.Name)
-                    .IsRequired()
                     .HasMaxLength(20);
                 entity.Property(st => st.Code)
-                    .IsRequired()
-                    .HasMaxLength(5);
+                    .HasMaxLength(8);
             });
         }
     }

@@ -4,8 +4,7 @@ using LN.Core.Application.Wrappers;
 using LN.Infraestructure.Persistence.Repositories.Interfaces;
 using LN.Service.Interfaces;
 using LN.Service.Utils.TemplateMethods.Adapters;
-using LN.Service.Utils.TemplateMethods.ExtensionMethod;
-using LN.Service.Utils.TemplateMethods.ExtensionsMethod;
+using LN.Service.Utils.TemplateMethods.Extensions;
 using System;
 using System.Threading.Tasks;
 
@@ -13,11 +12,14 @@ namespace LN.Service.Implementations
 {
     public class ContactService : IContactService
     {
-        private readonly IContactRepository _contactRepository;
+        private readonly IContactRepositoryWithLINQ _contactRepositoryWithLINQ;
+        private readonly IContactRepositoryWithSP _contactRepositoryWithSP;
 
-        public ContactService(IContactRepository contactRepository)
+        public ContactService(//IContactRepositoryWithLINQ contactRepositoryWithLINQ, 
+            IContactRepositoryWithSP contactRepositoryWithSP)
         {
-            _contactRepository = contactRepository;
+            //_contactRepositoryWithLINQ = contactRepositoryWithLINQ;
+            _contactRepositoryWithSP = contactRepositoryWithSP;
         }
 
         /// <summary>
@@ -29,7 +31,7 @@ namespace LN.Service.Implementations
         {
             var createContact = new CreateContact
             {
-                _contactRepository = this._contactRepository
+                _contactRepository = _contactRepositoryWithLINQ
             };
 
             return await ContactAdapter.New(createContact, request);
@@ -44,7 +46,7 @@ namespace LN.Service.Implementations
         {
             var removeContact = new RemoveContact()
             {
-                _contactRepository = this._contactRepository
+                _contactRepository = _contactRepositoryWithLINQ
             };
 
             return await ContactAdapter.Delete(removeContact, Id);
@@ -57,7 +59,12 @@ namespace LN.Service.Implementations
         /// <returns></returns>
         public async Task<Response<ContactDTO>> GetContactById(Guid Id)
         {
-            throw new NotImplementedException();
+            var getContact = new FindContact()
+            {
+                _contactRepository = _contactRepositoryWithLINQ
+            };
+
+            return await ContactAdapter.FindById(getContact, Id);
         }
 
         /// <summary>
@@ -70,7 +77,7 @@ namespace LN.Service.Implementations
         {
             var updateContact = new UpdateContact()
             {
-                _contactRepository = this._contactRepository
+                _contactRepository = _contactRepositoryWithSP
             };
 
             return await ContactAdapter.Modify(updateContact, request, Id);

@@ -2,7 +2,7 @@
 
 namespace LN.Infraestructure.Persistence.Repositories.Interfaces
 {
-    public interface IContactRepository: IGenericRepository<Contact>
+    public interface IContactRepositoryWithLINQ: IGenericRepository<Contact>
     {
     }
 }

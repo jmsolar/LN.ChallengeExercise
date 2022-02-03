@@ -12,5 +12,7 @@ namespace LN.Application.DTOs.PhoneNumber.Requests
         public string StateCode { get; set; }
         [DataMember]
         public string Number { get; set; }
+        [DataMember]
+        public bool IsPersonal { get; set; }
     }
 }

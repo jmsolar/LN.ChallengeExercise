@@ -3,7 +3,7 @@ using LN.Core.Application.Wrappers;
 using LN.Service.Utils.TemplateMethods.BaseTemplates;
 using System.Threading.Tasks;
 
-namespace LN.Service.Utils.TemplateMethods.ExtensionMethod
+namespace LN.Service.Utils.TemplateMethods.Extensions
 {
     public class RemoveContact : ContactBaseTemplate
     {

@@ -1,5 +1,7 @@
 ﻿using LN.Core.Application.Wrappers;
+using Microsoft.Data.SqlClient;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace LN.Infraestructure.Persistence.Repositories.Interfaces
@@ -25,7 +27,7 @@ namespace LN.Infraestructure.Persistence.Repositories.Interfaces
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<Response<T>> Update(T entity);
+        Task<Response<T>> Update(string query, List<SqlParameter> parameters);
 
         /// <summary>
         /// Removes a entity from DB and return if was success

@@ -10,11 +10,9 @@ namespace LN.Infraestructure.Persistence.Configurations
             builder.Entity<City>(entity =>
             {
                 entity.Property(ci => ci.Name)
-                    .IsRequired()
                     .HasMaxLength(20);
                 entity.Property(ci => ci.ZipCode)
-                    .IsRequired()
-                    .HasMaxLength(5);
+                    .HasMaxLength(8);
             });
         }
     }

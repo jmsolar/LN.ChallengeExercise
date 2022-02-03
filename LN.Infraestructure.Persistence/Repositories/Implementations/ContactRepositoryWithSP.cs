@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LN.Infraestructure.Persistence.Repositories.Implementations
 {
-    public class ContactRepository : GenericRepository<Contact>, IContactRepository
+    public class ContactRepositoryWithSP : GenericRepositoryWithSP<Contact>, IContactRepositoryWithSP
     {
         private readonly DbSet<Contact> _contacts;
 
-        public ContactRepository(ApplicationContext context) : base(context)
+        public ContactRepositoryWithSP(ApplicationContext context) : base(context)
         {
             _contacts = context.Set<Contact>();
         }

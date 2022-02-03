@@ -4,14 +4,16 @@ using LN.Infraestructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LN.Infraestructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220203024321_Agrego campo a PhoneNumber para saber si el numero es personal o de trabajo")]
+    partial class AgregocampoaPhoneNumberparasabersielnumeroespersonalodetrabajo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,11 +77,12 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("ZipCode")
-                        .HasMaxLength(8)
+                        .HasMaxLength(5)
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -100,6 +103,7 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("datetime2(0)");
 
                     b.Property<string>("Company")
+                        .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
@@ -110,6 +114,7 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -123,10 +128,12 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Profile")
+                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
@@ -145,8 +152,9 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AlphaCode")
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
+                        .IsRequired()
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -161,11 +169,12 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("NumericCode")
-                        .HasMaxLength(8)
+                        .HasMaxLength(4)
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -186,8 +195,9 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CountryCode")
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
+                        .IsRequired()
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -205,12 +215,14 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Number")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("StateCode")
+                        .IsRequired()
                         .HasMaxLength(8)
                         .HasColumnType("nvarchar(8)");
+
+                    b.Property<string>("StateCode")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
 
                     b.HasKey("Id");
 
@@ -230,8 +242,9 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Code")
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -246,6 +259,7 @@ namespace LN.Infraestructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 

@@ -10,14 +10,11 @@ namespace LN.Infraestructure.Persistence.Configurations
             builder.Entity<Country>(entity =>
             {
                 entity.Property(co => co.Name)
-                    .IsRequired()
                     .HasMaxLength(20);
                 entity.Property(co => co.NumericCode)
-                    .IsRequired()
-                    .HasMaxLength(4);
+                    .HasMaxLength(8);
                 entity.Property(co => co.AlphaCode)
-                    .IsRequired()
-                    .HasMaxLength(4);
+                    .HasMaxLength(8);
             });
         }
     }

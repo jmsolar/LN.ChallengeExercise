@@ -24,9 +24,7 @@ namespace LN.WebAPI.Controllers.v1
         [HttpGet("{id}")]
         public async Task<Response<ContactDTO>> Get(Guid id)
         {
-            var response = await _contactService.GetContactById(id);
-
-            return response;
+            return await _contactService.GetContactById(id);
         }
 
         // POST api/<ContactController>

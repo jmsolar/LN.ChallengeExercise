@@ -34,8 +34,11 @@ namespace LN.Infraestructure.Persistence
 
         private static void ConfigRepo()
         {
-            _services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            _services.AddTransient<IContactRepository, ContactRepository>();
+            _services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepositoryWithLINQ<>));
+            _services.AddTransient<IContactRepositoryWithLINQ, ContactRepositoryWithLINQ>();
+
+            _services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepositoryWithSP<>));
+            _services.AddTransient<IContactRepositoryWithSP, ContactRepositoryWithSP>();
         }
 
         private static void InitSeeder()

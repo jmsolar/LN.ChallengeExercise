@@ -1,9 +1,4 @@
-﻿using LN.Application.DTOs.Address.Requests;
-using LN.Application.DTOs.City.Requests;
-using LN.Application.DTOs.Contact.Requests;
-using LN.Application.DTOs.Country.Requests;
-using LN.Application.DTOs.PhoneNumber.Requests;
-using LN.Application.DTOs.State.Requests;
+﻿using LN.Application.DTOs.Contact.Requests;
 using LN.Core.Application.DTOs.Contact.Responses;
 using LN.Core.Application.Wrappers;
 using LN.Core.Domain.Entities;
@@ -16,33 +11,26 @@ namespace LN.Service.Utils.TemplateMethods.BaseTemplates
     public abstract class ContactBaseTemplate
     {
         public Contact _requestMapped;
-        public Response<Contact> _responseContact;
 
         #region Data responses
         public Response<ContactDTO> _response = new Response<ContactDTO>();
         public Response<bool> _responseStatus;
         #endregion
 
-        // REFACTOR! sacar la asignacion al momento de la instanciacion
-        // Repositories
-        public IContactRepository _contactRepository;
+        public IGenericRepository<Contact> _contactRepository;
 
         #region Filters or data request to map
         public NewContactDTO _newContact;
-        public NewPhoneNumberDTO _phoneNumber;
-        public NewAddressDTO _address;
-        public NewCountryDTO _country;
-        public NewStateDTO _state;
-        public NewCityDTO _city;
-        public Guid _id;
         public ModifyContactDTO _modifyContact;
+        public FilterContacByIdDTO _filterContacById;
+        public Guid _id;
         #endregion
 
         public async Task<Response<ContactDTO>> GetContact() {
             Setup();
-            MapRequestBase();
+            MapRequest();
             await CRUDOperation();
-            MapResponseBase();
+            MapResponse();
 
             return _response;
         }
@@ -50,19 +38,19 @@ namespace LN.Service.Utils.TemplateMethods.BaseTemplates
         public async Task<Response<bool>> GetStatusResult()
         {
             Setup();
-            MapRequestBase();
+            MapRequest();
             await CRUDOperation();
-            MapResponseBase();
+            MapResponse();
 
             return _responseStatus;
         }
 
         public virtual void Setup() { }
 
-        public virtual void MapRequestBase() { }
+        public virtual void MapRequest() { }
 
         public virtual async Task CRUDOperation() { }
 
-        public virtual void MapResponseBase() { }
+        public virtual void MapResponse() { }
     }
 }
