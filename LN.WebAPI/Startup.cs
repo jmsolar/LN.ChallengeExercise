@@ -23,17 +23,19 @@ namespace LN.WebAPI
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             
             services.AddPersistenceInfrastructure(Configuration);
             services.AddTransient<IContactService, ContactService>();
             services.AddSwaggerExtension();
+            services.AddMemoryCache(options =>
+            {
+                options.SizeLimit = 1024; // Tamaño maximo en cache
+            });
             services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger)
         {
             if (env.IsDevelopment())

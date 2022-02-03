@@ -61,7 +61,7 @@ namespace LN.Service.Implementations
         {
             var getContact = new FindContact()
             {
-                _contactRepository = _contactRepositoryWithLINQ
+                _contactRepository = _contactRepositoryWithSP
             };
 
             return await ContactAdapter.FindById(getContact, Id);

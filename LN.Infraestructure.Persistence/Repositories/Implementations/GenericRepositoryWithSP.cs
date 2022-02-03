@@ -26,7 +26,7 @@ namespace LN.Infraestructure.Persistence.Repositories.Implementations
             throw new NotImplementedException();
         }
 
-        public async Task<Response<T>> GetById(Guid Id)
+        public virtual async Task<Response<T>> GetById(Guid Id)
         {
             throw new NotImplementedException();
         }
